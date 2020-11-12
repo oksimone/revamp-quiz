@@ -1,7 +1,7 @@
-// not sure what current index is, must figure that out
 var currentIndex = 0;
 var allQuestions = 0;
 let secondsLeft = 45;
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const beginbtn = document.querySelector("#beginBtn");
@@ -14,13 +14,16 @@ function begin() {
  
 }
 
+// Timer
 function countDown() {
   const timeLeftDisplay = document.querySelector("#timer");
   setInterval(function () {
     if (secondsLeft <= 0) {
       clearInterval(secondsLeft);
-      window.location.href = "highscore.html";
+      window.location.href = "end.html";
+      endGame();
     }
+
     timeLeftDisplay.innerHTML = secondsLeft;
     secondsLeft -= 1;
   }, 1000);
@@ -53,8 +56,7 @@ var allQuestions = [
     answer: "black",
   },
   {
-    question:
-      "how many licks does it take to get to the center of a tootsie pop?",
+    question:"how many licks does it take to get to the center of a tootsie pop?",
     choices: ["four", "twenty", "the world may never know", "ten"],
     answer: "the world may never know",
   },
@@ -89,7 +91,27 @@ function answerClick() {
 
   if (currentIndex === allQuestions.length) {
     console.log("end game");
+    window.location.href = "end.html";
+    timeLeftDisplay.innerHTML = secondsLeft;
+    endGame();
+
+
   } else {
     writeQuestion();
   }
 }
+
+function enterIntitals (){
+  intialsInput =  document.querySelector("intials").value.trim()
+  var newScore = {
+      intials: intialsInput,
+      score: secondsLeft
+  }
+
+  const highscoreArr = JSON.parse(localStorage.getItem("highscoreArr"))|| [];
+  highscoreArr.push(newScore)
+  localStorage.setItem("highscoreArr", JSON.stringify(highscoreArr))
+  
+}
+
+
