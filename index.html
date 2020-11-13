@@ -14,14 +14,14 @@
   </head>
   <body>
     <!-- START OF LANDING PAGE -->
-    <header class = "d-none">
-      <div class = "container mt-5">
+    <header>
+      <div class = "container mt-5 d-none">
       <div class="row">
         <div class="col-12">
-          <h1 class="text-center">Welcome to revamp coding quiz</h1>
+          <h1 class="text-center" id = "revampTitle">Welcome to revamp coding quiz</h1>
         </div>
         <div class="col">
-          <p class="text-center">
+          <p class="text-center" id = "revampDescription">
             Answer the questions to the best of your ability. If you answer a
             question incorrectly, your time will decrease. Click start to begin.
           </p>
@@ -39,7 +39,7 @@
           >
           Begin
         </button>
-        <div id = "timer" style = "display: none;"></div>
+        <!-- <div id = "timer" style = "display: none;"></div> -->
         
       </div>
     </header>
@@ -49,9 +49,9 @@
 
 <!-- START OF TIMER AND QUESTIONS CONTAINER -->
 
-<div class="container mt-5 d-none">
+<div class="container mt-5 timerContainer ">
   <div class = "row justify-content-end">
-      <h6>time:</h6>
+      <h6 id = "timeDisplay">time:</h6>
       <h6 id = "timer"></h6>
   
   </div>
@@ -73,7 +73,7 @@
     </div>
   </div>
   <div class="row justify-content-center mt-2">
-    <div class = "col-align-self-center" id = questionContain>
+    <div class = "col-align-self-center" id = answerContain>
       
     </div>
     
