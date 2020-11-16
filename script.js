@@ -1,11 +1,13 @@
 var revampTitle = document.querySelector("#revampTitle");
 var revampDescription = document.querySelector("#revampDescription");
 var timerContainer = document.querySelector("#timerContainer");
+var endGameContainer = document.querySelector("#endGameContain")
 var question = document.querySelector("#description");
 var timer = document.querySelector("#timer");
 var timeDisplay = document.querySelector("#timeDisplay");
 var beginbtn = document.querySelector("#beginBtn");
 var submitScore = document.querySelector("#submitScore")
+var rightOrWrong = document.question("#rightOrWrong")
 var answerClick;
 var answers = document.querySelector("#answerContain");
 var currentIndex = 0;
@@ -84,55 +86,73 @@ function endPage(inits, scores){
   location.href = "end.html"
 }
 
-// function writeQuestion() {
-//   var currentQuestion = allQuestions[currentIndex];
-//   const choiceContainer = document.querySelector("#questionContain");
-//   questions.textContent = currentQuestion.question;
-//   choiceContainer.innerHTML = "";
-//   // const choices = document.querySelector("#choiceOne");
 
-//   for (var i = 0; i < currentQuestion.choices.length; i++) {
-//     var newAnswerBtn = document.createElement("button");
-//     newAnswerBtn.setAttribute("value", currentQuestion.choices[i]);
-//     newAnswerBtn.textContent = currentQuestion.choices[i];
-//     // newAnswerBtn.setAttribute("style", "display: visible")
-//     choiceContainer.appendChild(newAnswerBtn);
-//     // onclick function for clicking the answer
-//     newAnswerBtn.onclick = answerClick;
-//     console.log(currentQuestion)
-//   }
-// }
+function writeQuestion() {
+ question.textContent = allQuestions.question
+  // allQuestions.choices
+  // choiceContainer.innerHTML = "";
 
-// function answerClick() {
-//   if (this.value !== allQuestions[currentIndex.answer]) {
-//     secondsLeft = secondsLeft - 10;
-//   }
+  for (var i = 0; i < allQuestions.choices.length; i++) {
+  var newAnswerBtn = document.createElement("button");
+  newAnswerBtn.setAttribute("value", currentQuestion.choices[i]);
+  newAnswerBtn.textContent = currentQuestion.choices[i];
+  answers.appendChild(newAnswerBtn);
 
-//   currentIndex++;
+    // newAnswerBtn.setAttribute("style", "display: visible")
+    // onclick function for clicking the answer
+    // newAnswerBtn.onclick = answerClick;
+    // console.log(currentQuestion)
 
-//   if (currentIndex === allQuestions.length) {
-//     console.log("end game");
-//     window.location.href = "end.html";
-//     timeLeftDisplay.innerHTML = secondsLeft;
-//     endGame();
+    newAnswerBtn.addEventListener("click", newQuestion)
+  }
+}
 
+// function for a new question to appear
 
-//   } else {
-//     writeQuestion();
-//   }
-// }
+function newQuestion(e){
+currentIndex++
+  if (currentIndex < allQuestions.length) {
+    answered(e.target.innerHTML === answerClick.answer)
+    answers.innerHTML = ""
 
-// function enterIntitals (){
-//   intialsInput =  document.querySelector("intials").value.trim()
-//   var newScore = {
-//       intials: intialsInput,
-//       score: secondsLeft
-//   }
+    if(currentIndex > allQuestions.length){
+      answerClick = questions [currentIndex]
+      newQuestion(answerClick)
+    }else {
+      currentIndex = 0
+      newQuestion(answerClick)
+    }
 
-//   const highscoreArr = JSON.parse(localStorage.getItem("highscoreArr"))|| [];
-//   highscoreArr.push(newScore)
-//   localStorage.setItem("highscoreArr", JSON.stringify(highscoreArr))
+  } else {
+    console.log("END GAME")
+    // make function for end of game
+  }
   
-// }
+  
+  
+
+}
+
+
+function alert(answered){
+  if(answered){
+    rightOrWrong.innerHTML = "Correct!"
+  } else{
+    rightOrWrong.innerHTML = "Wrong!"
+    time = time - 15
+    timer.innerHTML = time
+  }
+  setTimeout(function(){
+    rightOrWrong.innerHTML = ""
+  }, 1000)
+
+  }
+function endGame(){
+  // deciding if i want to show the user their score when they enter their initials
+  endGameContainer.classList.remove("d-none");
+  timerContainer.classList.remove("d-none")
+}
+
+
 
 
