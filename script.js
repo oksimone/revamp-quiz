@@ -10,7 +10,7 @@ var rightOrWrong = document.querySelector("#rightOrWrong");
 var answerClick;
 var answers = document.querySelector("#answerContain");
 var currentIndex = 0;
-var score = 0;
+// var score = 0;
 var time = 60;
 var highscores = [];
 var mostRecentScores = JSON.parse(localStorage.getItem("userData"));
@@ -69,7 +69,7 @@ submitBtn.addEventListener("click", function () {
 // Timer
 function countDown() {
   var timeInterval = setInterval(function () {
-    timeDisplay.innerHTML = time;
+    timer.innerHTML = time;
     time--;
   }, 1000);
 }
@@ -133,7 +133,9 @@ function answered(response) {
   }
   setTimeout(function () {
     rightOrWrong.innerHTML = "";
+
   }, 1000);
+
 }
 function endGame() {
   // deciding if i want to show the user their score when they enter their initials
