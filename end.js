@@ -1,35 +1,36 @@
-// submit initials
-var submitBtn = document.querySelector("#submit");
-var endGameContain = document.querySelector("#endGameContain");
-var highscoreContain = document.querySelector("#highscoreContainer")
 
+var startAgainBtn = document.querySelector("#backToStart");
+var highscoreContain = document.querySelector("#highscoreContainer")
 // highscore list with intials & scores
 var highscoreList = document.querySelector("#highscoreList");
-//
 // const mostRecentScore = localStorage.getItem("mostRecentScore");
 
-const highscoreArr = JSON.parse(localStorage.getItem("highscoreArr"))|| [];
+var mostRecentScore = JSON.parse(localStorage.getItem("userData"))
 
 
-function endGame(){
-    endGameContain.setAttribute("style", "display: block !important");
-    highscoreContain.setAttribute("style", "display: none !important");
-
-    if (initialsInput === ""){
-        endGameContain.setAttribute("style", "display: none !important");
-        highscoreContain.setAttribute("style", "display: block !important");
+function showHighScore(){
+   
+    if (mostRecentScores !== null ){
+        scores.className = "scoresList"
+        
+        for(let i = 0; i < mostRecentScore.length; i++){
+            var intials = mostRecentScore[i].inits;
+            var score = mostRecentScore[i].scores;
+            var scores = document.createElement("li")
+            scores.innerHTML = intials + " " + score;
+            highscoreList.appendChild(scores)
+         
+            highscoreList.appendChild(newList)
+        }
+     
     }
-
-    for(let i = 0; i < highscoreArr.length; i++){
-        var newList = document.createElement("li")
-        newList.textContent = highscoreArr.initials[i] + " - " + highscoreArr[i].score
-        highscoreList.appendChild(newList)
-    }
-
 
 }
+showHighScore();
 
 
 
 
-submitBtn.addEventListener("click", endGame)
+startAgainBtn.addEventListener("click", function(){
+    location.href = "index.html"
+})
