@@ -125,6 +125,7 @@ currentIndex++
 
   } else {
     console.log("END GAME")
+    endGame();
     // make function for end of game
   }
   
