@@ -5,7 +5,7 @@ var endGameContainer = document.querySelector("#endGameContain");
 var timer = document.querySelector("#timer");
 var timeDisplay = document.querySelector("#timeDisplay");
 var beginbtn = document.querySelector("#beginBtn");
-var submitBtn = document.querySelector("#submitScore");
+var submitScore = document.getElementById("submitScore");
 var rightOrWrong = document.querySelector("#rightOrWrong");
 var answerClick;
 var answers = document.querySelector("#answerContain");
@@ -60,10 +60,12 @@ function begin() {
 }
 // submit score function
 
-submitBtn.addEventListener("click", function () {
-  var intitals = document.getElementById("intials").value;
+submitScore.addEventListener("click", function (event) {
+  event.preventDefault()
+  var initials = document.getElementById("initials").value;
   // calling highscore page function
-  endPage(intials, score);
+  endPage(initials, time);
+  location.href = "end.html"
 });
 
 // Timer
@@ -75,15 +77,17 @@ function countDown() {
 }
 
 function endPage(inits, scores) {
+
   var userData = {
     inits: inits,
-    scores: scores,
+    scores: scores
   };
   highscores.push(userData);
   
   localStorage.setItem("userData", JSON.stringify(highscores));
-  location.href = "end.html";
+  location.href = "end.html"
 }
+
 
 function writeQuestion() {
   var currentQuestion = allQuestions[currentIndex]

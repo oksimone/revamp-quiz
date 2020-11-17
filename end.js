@@ -10,17 +10,17 @@ var mostRecentScore = JSON.parse(localStorage.getItem("userData"))
 
 function showHighScore(){
    
-    if (mostRecentScores !== null ){
-        scores.className = "scoresList"
+    if (mostRecentScore !== null ){
+        // scores.className = "scoresList"
         
         for(let i = 0; i < mostRecentScore.length; i++){
-            var intials = mostRecentScore[i].inits;
+            var initials = mostRecentScore[i].inits;
             var score = mostRecentScore[i].scores;
             var scores = document.createElement("li")
-            scores.innerHTML = intials + " " + score;
+            scores.innerHTML = initials + " " + score;
             highscoreList.appendChild(scores)
          
-            highscoreList.appendChild(newList)
+            // highscoreList.appendChild(newList)
         }
      
     }
