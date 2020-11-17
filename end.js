@@ -1,5 +1,6 @@
 
 var startAgainBtn = document.querySelector("#backToStart");
+var clearScoresBtn = document.querySelector("#clearBtn")
 var highscoreContain = document.querySelector("#highscoreContainer")
 // highscore list with intials & scores
 var highscoreList = document.querySelector("#highscoreList");
@@ -29,8 +30,11 @@ function showHighScore(){
 showHighScore();
 
 
-
-
 startAgainBtn.addEventListener("click", function(){
     location.href = "index.html"
+})
+
+clearScoresBtn.addEventListener("click", function(){
+    highscoreList.innerHTML = "";
+    window.localStorage.clear()
 })
