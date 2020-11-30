@@ -11,31 +11,60 @@ var answerClick;
 var answers = document.querySelector("#answerContain");
 var currentIndex = 0;
 // var score = 0;
-var time = 60;
+var time = 120;
 var highscores = [];
 var mostRecentScores = JSON.parse(localStorage.getItem("userData"));
 
 var allQuestions = [
   {
-    question: "fill in the blank, Hydro _____",
-    choices: ["cup", "mug", "flask", "flute"],
-    answer: "flask",
+    question: "Which character said this quote: 'We can stay up late, swapping manly stories, and in the morning, I'm making waffles!'",
+    choices: ["shrek", "puss n boots", "donkey", "fiona"],
+    answer: "donkey",
   },
   {
-    question: "the sky is what color?",
-    choices: ["blue", "pink", "white", "depends on the day"],
-    answer: "depends on the day",
+    question: "What animal did King Harold turn into in Shrek 2?",
+    choices: ["pig", "frog", "duck", "bird"],
+    answer: "frog",
   },
   {
-    question: "what color is coffee?",
-    choices: ["black", "yellow", "tan", "beige"],
-    answer: "black",
+    question: "Which Shrek film did Donkey say this line, 'Now I'm a flyin' talkin' donkey! You might seen a housefly. Maybe even a superfly. But I bet you ain't never seen a donkey fly!'",
+    choices: ["Shrek", "Shrek 2", "Shrek the Third", "Shrek Forever After"],
+    answer: "Shrek",
   },
   {
-    question:
-    "how many licks does it take to get to the center of a tootsie pop?",
-    choices: ["four", "twenty", "the world may never know", "ten"],
-    answer: "the world may never know",
+    question: "Who was the name of the Giant Gingerbread that appeared in Shrek 2?",
+    choices: ["mongo", "cinderella", "gingy", "arty"],
+    answer: "mongo",
+  },
+  {
+    question: "Which character said this quote: 'Blue flower, red thorns, blue flower, red thorns. This would be so much easier if I wasn't colorblind!'",
+    choices: ["lord farquad", "fiona", "gingy", "donkey"],
+    answer: "donkey",
+  },
+  {
+    question: "Which character said this quote: 'That'll do Donkey. That'll do'",
+    choices: ["lord farquad", "shrek", "puss n boots", "prince harold"],
+    answer: "shrek",
+  },
+  {
+    question: "What potion did Shrek and Donkey take in Shrek 2?",
+    choices: ["stool softener", "hex locks", "handsome", "happily ever after"],
+    answer: "happily ever after",
+  },
+  {
+    question: "Who was this bachelorette contestant that Mirror Man was describing in Shrek? 'Bachelorette number two is a cape-wearing girl from the land of fancy. Although she lives with seven other men, she's not easy. Just kiss her dead frozen lips and find out what live wire she is.'",
+    choices: ["snow white", "cinderella", "princess fiona", "rapunzel"],
+    answer: "snow white",
+  },
+  {
+    question: "In Shrek, what does Princess Fiona turn into when the sun sets?",
+    choices: ["dragon", "prince", "ogre", "wolf"],
+    answer: "ogre",
+  },
+  {
+    question: "Shrek goes on a journey to find which character to take the throne as a new king of Far Far Away?",
+    choices: ["Lancelot", "Prince Charming", "Captain Hook", "Arthur"],
+    answer: "Arthur",
   },
 ];
 
