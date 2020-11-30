@@ -1,20 +1,11 @@
-html, header{
-    background-color: #AAC0AA;
+html, body{
+    background-color: #bedbbb!important;
 }
-#revampTitle{
-    font-family: 'Acme', sans-serif;  
+#revampTitle, h1, h3{
+    font-family: 'Acme', sans-serif!important;  
+    color:white;
 }
-/* .wrapper {
-    width: 500px;
-    height: 500px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-    overflow: hidden;
-  } */
+
   
   .wave {
     width: 1000px;
@@ -25,7 +16,7 @@ html, header{
     margin-left: -500px;
     margin-top: -500px;
     border-radius: 35%;
-    background: rgba(255, 255, 255, .75);
+    background: #92817a;
     animation: wave 15s infinite linear;
   }
   
@@ -38,8 +29,10 @@ html, header{
      position: relative;
  }
 
- .homePage{
+ .homePage, #description, #answerContain, #rightOrWrong, #endGameContain, #highscoreHeader, #highscoreTitle, #highscoreButtons, #highscoreList, .timerContainer{
     z-index: 1;
     position: relative;
  }
-  
+  #backToStart{
+      margin-right: 100px;
+  }

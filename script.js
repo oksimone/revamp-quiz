@@ -97,7 +97,8 @@ function writeQuestion() {
   for (var i = 0; i < currentQuestion.choices.length; i++) {
     
     var newAnswerBtn = document.createElement("button");
-    newAnswerBtn.className = "btn btn-outline-info"
+    newAnswerBtn.className = "btn btn-light"
+    newAnswerBtn.setAttribute("style", "margin-right: 25px")
     newAnswerBtn.setAttribute("value", currentQuestion.choices[i]);
     newAnswerBtn.textContent = currentQuestion.choices[i];
     answers.appendChild(newAnswerBtn);
