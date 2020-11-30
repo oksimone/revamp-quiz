@@ -100,6 +100,12 @@ submitScore.addEventListener("click", function (event) {
 // Timer
 function countDown() {
   var timeInterval = setInterval(function () {
+    if (time <=0){
+    timer.textContent = 0
+    clearInterval(timeInterval)
+    endGame()
+    }
+
     timer.innerHTML = time;
     time--;
   }, 1000);
@@ -127,7 +133,7 @@ function writeQuestion() {
     
     var newAnswerBtn = document.createElement("button");
     newAnswerBtn.className = "btn btn-light btn-md"
-    newAnswerBtn.setAttribute("style", "margin-right: 5px")
+    newAnswerBtn.setAttribute("style", "margin-right:5px");
     newAnswerBtn.setAttribute("value", currentQuestion.choices[i]);
     newAnswerBtn.textContent = currentQuestion.choices[i];
     answers.appendChild(newAnswerBtn);
